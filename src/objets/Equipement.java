@@ -1,6 +1,11 @@
 package objets;
 
 public enum Equipement {
-	BOUCLIER, CASQUE;
+	BOUCLIER("bouclier"), CASQUE("casque");
 
+	String nom;
+
+	private Equipement(String nom) {
+		this.nom = nom;
+	}
 }
