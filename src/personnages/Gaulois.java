@@ -1,8 +1,14 @@
 package personnages;
 
+import objets.Equipement;
+
 public class Gaulois {
 	private String nom;
+	// private int force;
 	private int force;
+	private int nbTrophees;
+	private Equipement[] trophees = new Equipement[100];
+	private int effetPotion;
 
 	public Gaulois(String nom, int force) {
 		this.nom = nom;
@@ -17,15 +23,27 @@ public class Gaulois {
 		System.out.println(prendreParole() + "\"" + texte + "\"");
 	}
 
+	// private String prendreParole() {
+	// return "Le Gaulois " + nom + " : ";
+	// }
 	private String prendreParole() {
-		return "Le Gaulois " + nom + " : ";
+		return "Le gaulois " + nom + " : ";
 	}
 
+	// public void frapper(Romain romain) {
+	// String nomRomain = romain.getNom();
+	// System.out.println(nom + " envoie un grand coup dans la mï¿½choire de " +
+	// nomRomain);
+	// int forceCoup = force / 3;
+	// romain.recevoirCoup(forceCoup);
+	// }
+
 	public void frapper(Romain romain) {
-		String nomRomain = romain.getNom();
-		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + nomRomain);
-		int forceCoup = force / 3;
-		romain.recevoirCoup(forceCoup);
+		System.out.println(nom + " envoie un grand coup dans la mÃ¢choire de " + romain.getNom());
+		Equipement[] butin = romain.recevoirCoup((force / 3) * effetPotion);
+		for (int i = 0; butin != null && i < butin.length; i++, nbTrophees++) {
+			this.trophees[nbTrophees] = butin[i];
+		}
 	}
 
 	@Override
@@ -34,7 +52,7 @@ public class Gaulois {
 	}
 
 	public static void main(String[] args) {
-		Gaulois asterix = new Gaulois("Astérix", 8);
+		Gaulois asterix = new Gaulois("Astï¿½rix", 8);
 		System.out.println(asterix);
 	}
 }
