@@ -36,6 +36,7 @@ public class Gaulois {
 	// nomRomain);
 	// int forceCoup = force / 3;
 	// romain.recevoirCoup(forceCoup);
+	// c'est juste un commentaire test
 	// }
 
 	public void frapper(Romain romain) {
